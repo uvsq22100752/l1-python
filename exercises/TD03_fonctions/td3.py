@@ -58,6 +58,9 @@ def afficheTemps(temps):
         print(temps[3],"seconde",end=" ")
     else:
         print(end="  ")
+    return ""
+
+
         
 
 temps = ((1,0,14,23))    
