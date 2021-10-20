@@ -14,6 +14,7 @@ temps = (3,23,1,34)
 print(type(temps))
 print(tempsEnSeconde(temps))  
 
+print("/////////////////////////////////////////////////////////")
 def secondeEnTemps(seconde):
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     jours=int(seconde//86400)
@@ -30,7 +31,7 @@ temps = secondeEnTemps(100000)
 
 print(temps[0],"jours",temps[1],"heures",temps[2],"minutes",temps[3],"secondes")
 
-
+print("/////////////////////////////////////////////////////////")
 
 
 def afficheTemps(temps):
@@ -63,7 +64,7 @@ def afficheTemps(temps):
 
 temps = ((1,0,14,23))    
 print(afficheTemps(temps))  
-
+print("/////////////////////////////////////////////////////////")
 #demande temps
 
 def demandeTemps(demande):
@@ -82,22 +83,48 @@ def demandeTemps(demande):
             print("erreur")
             break
 demandeTemps(print)
-
+print("/////////////////////////////////////////////////////////")
 
 #somme temps
+def sommeTemps(temps1,temps2):
+    jours=temps1[0]+temps2[0]
+    heures=temps1[1]+temps2[1]
+    minutes=temps1[2]+temps2[2]
+    secondes=temps1[3]+temps2[3]
+    if secondes>60:
+        while secondes>60:
+            secondes=secondes-60
+            minutes=minutes+1
+    if minutes>60:
+        while minutes>60:
+            minutes=minutes-60
+            heures=heures+1
+    if heures>24:
+        while heures>24:
+            heures=heures-24
+            jours=jours+1
+    print(jours,"jours")
+    print(heures,"heures")
+    print(minutes,"minutes")
+    print(secondes,"secondes")
+    return
 
+sommeTemps((2,3,4,25),(5,22,57,1))
+print("/////////////////////////////////////////////////////////")
 
 #proportion temps 
 
-def proportionTemps(pourcentage):
-    nombreDeSec=tempsEnSeconde(temps3)
-    propDesSec=nombreDeSec*prop
+def proportionTemps(temps,proportion):
+    nombreDeSec=tempsEnSeconde(temps)
+    propDesSec=nombreDeSec*proportion
     resultat=secondeEnTemps(propDesSec)
-    return print(resultat)
+    return resultat
+proportion=(0.2)
+temps=(2,0,36,0)
+print(proportionTemps(temps,proportion))
+print("/////////////////////////////////////////////////////////")
 
-prop=0.2
-temps3=(2,0,36,0)
-proportionTemps(print)
+#affiche temps date
 
 
 
