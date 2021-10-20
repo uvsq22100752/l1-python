@@ -69,17 +69,35 @@ print(afficheTemps(temps))
 def demandeTemps(demande):
     while True:
         
-        j=int(input("Entre un nb de jours"))
+        j=int(input("Entre un nb de jours : "))
         if j<=30 and j>=1:
-            h=int(input("entre un nb d'heures"))
+            h=int(input("entre un nb d'heures : "))
         if h<=24 and h>=1:
-            m=int(input("entre un nb de minutes"))
+            m=int(input("entre un nb de minutes : "))
         if m<=60 and m>=1:
-            s=int(input("entre un nb de secondes"))
+            s=int(input("entre un nb de secondes : "))
         if s<=60 and s>=1:
             return print(j,"jour(s)",h,"heure(s)",m,"minute(s)",s,"seconde(s)")
         else:
             print("erreur")
             break
 demandeTemps(print)
+
+
+#somme temps
+
+
+#proportion temps 
+
+def proportionTemps(pourcentage):
+    nombreDeSec=tempsEnSeconde(temps3)
+    propDesSec=nombreDeSec*prop
+    resultat=secondeEnTemps(propDesSec)
+    return print(resultat)
+
+prop=0.2
+temps3=(2,0,36,0)
+proportionTemps(print)
+
+
 
