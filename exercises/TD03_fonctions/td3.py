@@ -61,8 +61,25 @@ def afficheTemps(temps):
     return ""
 
 
-        
-
 temps = ((1,0,14,23))    
 print(afficheTemps(temps))  
+
+#demande temps
+
+def demandeTemps(demande):
+    while True:
+        
+        j=int(input("Entre un nb de jours"))
+        if j<=30 and j>=1:
+            h=int(input("entre un nb d'heures"))
+        if h<=24 and h>=1:
+            m=int(input("entre un nb de minutes"))
+        if m<=60 and m>=1:
+            s=int(input("entre un nb de secondes"))
+        if s<=60 and s>=1:
+            return print(j,"jour(s)",h,"heure(s)",m,"minute(s)",s,"seconde(s)")
+        else:
+            print("erreur")
+            break
+demandeTemps(print)
 
