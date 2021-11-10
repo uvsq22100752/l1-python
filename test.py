@@ -9,25 +9,29 @@ def syracuse(n):
         else:
             n=(n*3)+1
             l.append(n)
-            
-    
-    else:
-        print(l)
-        print("fin")
-    return ""
-
+        
+    return (l)
 print(syracuse(int(input("entre un nombre: "))))
 
 def testeConjecture(n_max):
     """ Teste la conjecture de Collatz pour toutes les valeurs de 2 à n_max """
     
-    for n in range (2,(n_max)):
-        if syracuse(n)==1.0:
-            continue
-    return ""
-        
+    for n in range (1,(n_max)):
+       print(syracuse(n))
+    return (True)
+
             
 print(testeConjecture(10000))
+
+
+def tempsVol(n):
+    """ Retourne le temps de vol de n """
+    tps=len(syracuse(n))
+    return(tps)
+    
+print("Le temps de vol de", 3, "est", tempsVol(3))
+
+
+
         
-            
-            
+
