@@ -4,6 +4,7 @@ carre_pas_mag=[[4,14,15,1],[9,7,6,12],[5,11,10,8],[16,2,7,13]]
 print(len(carre_mag))
 
 
+
 def afficheCarre(carre):
     """ Affiche la liste à 2 dimensions carre comme un carré"""
     
@@ -35,3 +36,11 @@ def testLignesEgales(carre2):
 print(testLignesEgales(carre_mag))
 print(testLignesEgales(carre_pas_mag))
 
+def testColonnesEgales(carre):
+    """ Renvoie la somme des éléments d'une colonne de la liste 2D carre si toutes les colonnes ont la même somme, et -1 sinon """
+    transposed_carre = list(zip(*carre))
+    return testLignesEgales(transposed_carre)
+    
+print("2")
+print(testColonnesEgales(carre_mag))
+print(testColonnesEgales(carre_pas_mag))
