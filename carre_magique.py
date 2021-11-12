@@ -1,8 +1,17 @@
+
+
 carre_mag=[[4,14,15,1],[9,7,6,12],[5,11,10,8],[16,2,3,13]]
 carre_pas_mag=[[4,14,15,1],[9,7,6,12],[5,11,10,8],[16,2,7,13]]
+cjtcarre_mag=[]
 
-print(len(carre_mag))
-print(carre_mag[0][1])
+
+
+def conjectureCar(carre7):
+    a=sum(carre7,[])
+    return (a)
+    
+print(conjectureCar(carre_mag))
+print(conjectureCar(carre_pas_mag))
 
 
 def afficheCarre(carre):
@@ -69,3 +78,24 @@ def estCarreMagique(carre4):
 
 print(estCarreMagique(carre_mag))
 print(estCarreMagique(carre_pas_mag))
+
+
+
+def estNormal(carre5):
+    """ Retourne True si contient toutes les valeurs de 1 à n^2 où n est la taille 
+        du carré, et False sinon """
+    p=[]
+    
+    for i in range (1,16):
+        if (i) in conjectureCar(carre5):    
+            p.append(1)
+        else:
+            p.append(2)
+    if 2 in p:
+        return ("le carré, ",carre5,"n'est pas 'normal'")
+    else:
+        return ("le carré, ",carre5,"est 'normal'")
+        
+print(estNormal(carre_mag))
+print(estNormal(carre_pas_mag))
+
