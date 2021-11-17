@@ -9,21 +9,18 @@ canvas = tk.Canvas(root, width = 600, height = 600,bg="#000000")
 
 
 #création des boutons
+
 cercleBTN = tk.Button(root, text ="Cercle", command = root.destroy)
 cercleBTN.grid(row=2,column=0)
 
-
-carreBTN = tk.Button(root, text ="Quitter", command = root.destroy)
+carreBTN = tk.Button(root, text ="Carré", command = root.destroy)
 carreBTN.grid(row=3,column=0)
 
-croixBTN = tk.Button(root, text ="Quitter", command = root.destroy)
+croixBTN = tk.Button(root, text ="Croix", command = root.destroy)
 croixBTN.grid(row=4,column=0)
 
-carreBTN = tk.Button(root, text ="Quitter", command = root.destroy)
-carreBTN.grid(row=3,column=0)
-
-colorBTN = tk.Button(root, text ="Quitter", command = root.destroy)
-carreBTN.grid(row=1,column=2)
+colorBTN = tk.Button(root, text ="Choisir une couleur", command = root.destroy)
+colorBTN.grid(row=1,column=2)
 
 
 #création du canvas
