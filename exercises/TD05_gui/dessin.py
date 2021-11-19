@@ -2,21 +2,20 @@ import tkinter as tk
 from tkinter import messagebox
 import random as r 
 
-randomcolor=["yellow","black","blue","red"]
+
 #créartion de la fenêtre 
 root = tk.Tk()
 root.title("Mon dessin")
 root.geometry("600x600")
 canvas = tk.Canvas(root, width = 600, height = 600,bg="black",highlightbackground="red",selectborderwidth=5,relief="groove")
+
 def color():
-    while True:
-        print("white, black, red, green, blue, cyan, yellow")
-        a=input("Choisi une couleur parmis celle ci-dessus :")        
-        if a=="white" or "black" or "red" or "green" or "blue" or "cyan" or "yellow":
-            
-            break
-    return (a)
-        
+    print("white, black, red, green, blue, cyan, yellow")
+    global a
+    a=input("Choisi une couleur parmis celle ci-dessus :")
+    return 
+
+ 
 #création du cercle,carre et croix + coodonées 
                      
 def cercle():
@@ -32,9 +31,9 @@ def carre():
 def croix():
     x0 = r.randint(1,600)
     y0 = r.randint(1,600)
-    canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill=a)
-    canvas.create_line(y0, x0, y0-100 , x0-100,fill='yellow')
-    canvas.create_line(y0 -100, x0, y0 , x0-100, fill="yellow")
+    canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill='')
+    canvas.create_line(y0, x0, y0-100 , x0-100,fill='a')
+    canvas.create_line(y0 -100, x0, y0 , x0-100, fill="a")
 
 #création des boutons
 
