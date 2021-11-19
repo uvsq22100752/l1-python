@@ -24,6 +24,7 @@ def carre():
 def croix():
     x0 = r.randint(1,600)
     y0 = r.randint(1,600)
+    canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline='yellow',fill='')
     canvas.create_line(y0, x0, y0-100 , x0-100,fill='yellow')
     canvas.create_line(y0 -100, x0, y0 , x0-100, fill="yellow")
 
