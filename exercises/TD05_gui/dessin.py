@@ -7,12 +7,12 @@ randomcolor=["yellow","black","blue","red"]
 root = tk.Tk()
 root.title("Mon dessin")
 root.geometry("600x600")
-canvas = tk.Canvas(root, width = 600, height = 600,bg="black")
+canvas = tk.Canvas(root, width = 600, height = 600,bg="black",highlightbackground="red",selectborderwidth=5,relief="groove")
 
 def selectRandom(randomcolor):
   return r.choice(randomcolor)
 
-def changeColor():
+def changeColor(): 
     canvas.configure(bg = (selectRandom(randomcolor)))
     
 #création des boutons
