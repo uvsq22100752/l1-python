@@ -8,14 +8,14 @@ root = tk.Tk()
 root.title("Mon dessin")
 root.geometry("600x600")
 canvas = tk.Canvas(root, width = 600, height = 600,bg="black",highlightbackground="red",selectborderwidth=5,relief="groove")
-
+#fonction pour la couleur ! + globalisation de a
+a="blue"
 def color():
     print("white, black, red, green, blue, cyan, yellow")
     global a
     a=input("Choisi une couleur parmis celle ci-dessus :")
     return 
 
- 
 #création du cercle,carre et croix + coodonées 
                      
 def cercle():
@@ -32,8 +32,8 @@ def croix():
     x0 = r.randint(1,600)
     y0 = r.randint(1,600)
     canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill='')
-    canvas.create_line(y0, x0, y0-100 , x0-100,fill='a')
-    canvas.create_line(y0 -100, x0, y0 , x0-100, fill="a")
+    canvas.create_line(y0, x0, y0-100 , x0-100,fill=a)
+    canvas.create_line(y0 -100, x0, y0 , x0-100, fill=a)
 
 #création des boutons
 
