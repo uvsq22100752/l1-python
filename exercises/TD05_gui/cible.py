@@ -10,9 +10,9 @@ x0=1
 y0=1
 x1=b
 y1=a
-
 n=0
-for i in range (1,8):
+
+for i in range (1,10):
     if i==1:
         n=0
         print("i")
@@ -24,8 +24,6 @@ for i in range (1,8):
     canvas.create_oval(y0+(15+n), x0+(15+n), y1-(15+n) , x1-(15+n), outline=color[3],fill=color[3])
     canvas.create_oval(y0+(20+n), x0+(20+n), y1-(20+n) , x1-(20+n), outline=color[4],fill=color[4])
     canvas.create_oval(y0+(25+n), x0+(25+n), y1-(25+n) , x1-(25+n), outline=color[5],fill=color[5])
-
-
 
 
 
