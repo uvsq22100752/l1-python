@@ -13,9 +13,9 @@ a="blue"
 def color():
     print("white, black, red, green, blue, cyan, yellow")
     global a
-    a=input("Choisi une couleur parmis celle ci-dessus :")
-    return 
-
+    a=str(input("Choisi une couleur parmis celle ci-dessus :"))
+    
+    return print("tu as choisi la couleur",a)
 #création du cercle,carre et croix + coodonées 
                      
 def cercle():
