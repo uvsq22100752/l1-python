@@ -19,15 +19,18 @@ def get_color():
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
 
-
-
 def draw_pixel(i,j,color):
     canvas.create_rectangle( (i, j)*2,fill=color,outline="" )
  
 draw_pixel(256/2,256/2,get_color())  
 
 def ecran_aleatoire():
-    draw_pixel(100,100,get_color)
+    for i in range(1,256):
+        for j in range(1,256):
+            draw_pixel(i,j,get_color()) 
+        
+        
+    
     
     
     
