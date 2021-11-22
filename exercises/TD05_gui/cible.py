@@ -2,7 +2,7 @@ import tkinter as tk
 global a,b
 a, b = 600, 600
 root = tk.Tk()
-root.title("Mon dessin")
+root.title("Cible")
 root.geometry("600x600")
 canvas = tk.Canvas(root, width = a, height = b,bg="black")
 color=["blue", "green", "black", "yellow", "magenta", "red"]
