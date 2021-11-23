@@ -46,15 +46,22 @@ def degrade_gris():
         
     
     
-    
-        
-    
+def degrade_2D():
+    r=0
+    g=0
+    b=255
+    for i in range (1,256):
+        r+=1
+        b-=1
+        for j in range(1,255):
+            draw_pixel(i,j,get_color(r,b,b))
 
+    
 randomBTN = tk.Button(root, text ="Aléatoire", command = ecran_aleatoire,fg="blue")
 randomBTN.grid(row=1,column=0)
 degradgrisBTN = tk.Button(root, text ="Dégradé gris", command = degrade_gris,fg="blue")
 degradgrisBTN.grid(row=2,column=0)
-degrad2dBTN = tk.Button(root, text ="Dégradé 2D", command = root.destroy,fg="blue")
+degrad2dBTN = tk.Button(root, text ="Dégradé 2D", command = degrade_2D,fg="blue")
 degrad2dBTN.grid(row=3,column=0)
 
 
