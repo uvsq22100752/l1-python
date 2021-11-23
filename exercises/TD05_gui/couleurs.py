@@ -9,7 +9,7 @@ root.geometry("374x256")
 canvas = tk.Canvas(root, width = a, height = b,bg="black")
 
 
-def get_color():
+def get_colorrandom():
     """ Retourne une couleur à partir de ses composantes r, g, b entre 0 et 255"""
     r = random.randint(0,255)
     g = random.randint(0,255)
@@ -18,29 +18,45 @@ def get_color():
     
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
+def get_color(r,g,b):
+    return '#{:02x}{:02x}{:02x}'.format(r, g, b)
+
 
 def draw_pixel(i,j,color):
     canvas.create_rectangle( (i, j)*2,fill=color,outline="" )
  
-draw_pixel(256/2,256/2,get_color())  
+draw_pixel(256/2,256/2,get_colorrandom())  
 
 def ecran_aleatoire():
     for i in range(1,256):
         for j in range(1,256):
-            draw_pixel(i,j,get_color()) 
+            draw_pixel(i,j,get_colorrandom()) 
+                      
+            
+def degrade_gris():
+    r=1
+    g=1
+    b=1
+    for i in range (1,256):
+        r+=1
+        g+=1
+        b+=1
+        for j in range(1,256):
+            draw_pixel(i,j,get_color(r,g,b))
         
+    
+    
+    
         
-    
-    
-    
     
 
 randomBTN = tk.Button(root, text ="Aléatoire", command = ecran_aleatoire,fg="blue")
 randomBTN.grid(row=1,column=0)
-degradgrisBTN = tk.Button(root, text ="Dégradé gris", command = root.destroy,fg="blue")
+degradgrisBTN = tk.Button(root, text ="Dégradé gris", command = degrade_gris,fg="blue")
 degradgrisBTN.grid(row=2,column=0)
 degrad2dBTN = tk.Button(root, text ="Dégradé 2D", command = root.destroy,fg="blue")
 degrad2dBTN.grid(row=3,column=0)
+
 
 canvas.grid(row=1,column=3,rowspan=4,columnspan=4) 
 root.mainloop()
