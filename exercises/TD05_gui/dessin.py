@@ -10,6 +10,9 @@ root.geometry("600x600")
 canvas = tk.Canvas(root, width = 600, height = 600,bg="black",highlightbackground="red",selectborderwidth=5,relief="groove")
 #fonction pour la couleur ! + globalisation de a
 a="blue"
+global objects
+objects=[]
+
 def color():
     print("white, black, red, green, blue, cyan, yellow")
     global a
@@ -49,6 +52,8 @@ croixBTN.grid(row=4,column=0)
 colorBTN = tk.Button(root, text ="Choisir une couleur", command = color,fg="red")
 colorBTN.grid(row=1,column=2)
 
+undoBTN = tk.Button(root, text="Undo", command = root.destroy,fg="red")
+undoBTN.grid(row=1,column=1)
 
 #création du canvas
 canvas.grid(row=2,column=1,rowspan=4,columnspan=4)
