@@ -13,7 +13,11 @@ a="blue"
 global objects
 objects=[]
 
+def undo():
+    ()
+
 def color():
+    
     print("white, black, red, green, blue, cyan, yellow")
     global a
     a=str(input("Choisi une couleur parmis celle ci-dessus :"))
@@ -22,21 +26,23 @@ def color():
 #création du cercle,carre et croix + coodonées 
                      
 def cercle():
-    x0 = r.randint(1,600)
-    y0 = r.randint(1,600)
-    canvas.create_oval(y0, x0, y0 -100 , x0 -100, outline=a,fill=a)
+    x0 = r.randint(1,500)
+    y0 = r.randint(1,500)
+    objects.append(canvas.create_oval(y0, x0, y0 -100 , x0 -100, outline=a,fill=a))
     
 def carre():
-    x0 = r.randint(1,600)
-    y0 = r.randint(1,600)
-    canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill=a)
+    x0 = r.randint(1,500)
+    y0 = r.randint(1,500)
+    objects.append(canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill=a))
     
 def croix():
-    x0 = r.randint(1,600)
-    y0 = r.randint(1,600)
-    canvas.create_rectangle(y0, x0, y0 -100, x0 -100, outline=a,fill='')
-    canvas.create_line(y0, x0, y0-100 , x0-100,fill=a)
-    canvas.create_line(y0 -100, x0, y0 , x0-100, fill=a)
+    x0=r.randint(1,500)
+    x1=x0+100
+    y0=r.randint(1,500)
+    y1=y0+100
+    canvas.create_line(x0+50,y0,x1-50,y1,width=10,fill=a,outline=a)
+    canvas.create_line(x0,y0+50,x1,y1-50,width=10,fill=a,outline=a)
+   
 
 #création des boutons
 
