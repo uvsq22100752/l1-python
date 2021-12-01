@@ -51,6 +51,7 @@ def degrade_2D():
     g=1
     b=255
     for i in range (1,256):       
+        
         b-=1
         r+=1
         for j in range(1,256):

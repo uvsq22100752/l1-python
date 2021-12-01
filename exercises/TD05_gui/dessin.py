@@ -23,9 +23,7 @@ def undo():
     else:
         last=objects.pop(-1)
         canvas.delete(last)
-        
-    
-    
+           
        
 
 def color():
