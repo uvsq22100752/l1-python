@@ -14,10 +14,12 @@ global objects
 objects=[]
 
 def undo():
-    last=objects[-1]
-    objects.pop(last)
-    if last=="cercle":
-        canvas.delete(last)
+    last=objects.pop(-1)
+    canvas.delete(last)
+    
+    
+        
+        
         
     
     
