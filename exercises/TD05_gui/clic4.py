@@ -25,7 +25,7 @@ def clic(event):
         root.destroy()
         
         
-    
+
 
 
 
