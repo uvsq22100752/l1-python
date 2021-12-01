@@ -14,15 +14,19 @@ global objects
 objects=[]
 
 def undo():
-    last=objects.pop(-1)
-    canvas.delete(last)
+
+    last=objects[-1]
+    if canvas.type(last)=="line":
+        last2=objects[-2]
+        last=objects.pop(-1)
+        canvas.delete(last)
+        canvas.delete(last2)
+    else:
+        last=objects.pop(-1)
+        canvas.delete(last)
     
     
-        
-        
-        
-    
-    
+       
 
 def color():
     
