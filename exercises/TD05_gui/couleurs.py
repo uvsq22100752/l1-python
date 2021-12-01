@@ -25,7 +25,7 @@ def get_color(r,g,b):
 def draw_pixel(i,j,color):
     canvas.create_rectangle( (i, j)*2,fill=color,outline="" )
  
-draw_pixel(256/2,256/2,get_colorrandom())  
+draw_pixel(256/2,256/2,"white")  
 
 def ecran_aleatoire():
     for i in range(1,256):
@@ -49,13 +49,15 @@ def degrade_gris():
 def degrade_2D():
     r=1
     g=1
-    b=255
+    b=1
     for i in range (1,256):       
         
-        b-=1
-        r+=1
         for j in range(1,256):
-            draw_pixel(i,j,get_color(r,b,b))
+            r=i
+            g=0
+            b=j
+            
+            draw_pixel(j,i,get_color(r,g,b))
     
 
     
