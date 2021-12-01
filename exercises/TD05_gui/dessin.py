@@ -14,7 +14,6 @@ global objects
 objects=[]
 
 def undo():
-
     last=objects[-1]
     if canvas.type(last)=="line":
         last2=objects[-2]
@@ -24,6 +23,7 @@ def undo():
     else:
         last=objects.pop(-1)
         canvas.delete(last)
+        
     
     
        
