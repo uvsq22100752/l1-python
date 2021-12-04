@@ -10,6 +10,7 @@ cord=[]
 
 i=0
 objects =[]
+cercle=[]
 def clic(event):
     global i
     global cercle
@@ -17,18 +18,18 @@ def clic(event):
     x,y=event.x,event.y
     if i <=8:
         print(i)
-        i+=1
-        canvas.create_oval(x +25, y +25, x -25, y-25 , fill="red")
-    
-    if i==9:
-        for item in canvas.find_all():
-            canvas.itemconfigure(item,outline="yellow", fill='yellow')
         
-        print("oui")
+        cercle.append(canvas.create_oval(x +25, y +25, x -25, y-25 , fill="red"))
         i+=1
-    if i==10:
+    elif i==9:
+        i+=1
+        for i in range (len(cercle)):
+            canvas.itemconfigure(i, fill='yellow')
+        
+        print(i)
+    else: 
         canvas.delete('all')
-        i=0
+    i=0
         
         
         
