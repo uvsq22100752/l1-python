@@ -1,7 +1,6 @@
 import tkinter as tk    
 from tkinter import messagebox
-import random as r 
-
+import random as r
 
 #créartion de la fenêtre 
 root = tk.Tk()
