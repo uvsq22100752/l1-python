@@ -1,5 +1,6 @@
 import discord
-from pokedex.py import 
+
+from pokedex1 import *
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -15,7 +16,6 @@ class MyClient(discord.Client):
             return
         global list1
         list1=[]
-        pokedex=['/raichu','/pikachu']
         if message.content.startswith('/'):
             list1.append(message.content)
             
@@ -23,15 +23,25 @@ class MyClient(discord.Client):
                 a=str(list1[0])
                 a="https://www.pokepedia.fr"+a
                 await message.channel.send(a.format(message))
+            else:
+                await message.channel.send("Erreur : Pokémon introuvable.".format(message))
+        if message.content.startswith('shiny/'):
+            list1.append(message.content)
+            nompoke=list1[0][5:(len(list1[0]))]
 
-        else:
-            if message.content.startswith('!hello'):
-                await message.channel.send('Hello {0.author.mention}'.format(message))
-            if message.content.startswith('!sheesh'):
-                await message.channel.send('SHHHHEEEEESHHHH {0.author.mention}'.format(message))
-            
+        if nompoke in pokedex:
+            b=pokedex.index(nompoke)
+            b+=1
+            b="https://pokestrat.io/images/gif-animes/shiny/"+str(b)+".gif"
+            await message.channel.send(b.format(message))        
+        if nompoke not in pokedex:
+            await message.channel.send("Erreur : Pokémon introuvable.".format(message))        
         
-
+        if message.content.startswith('!hello'):
+            await message.channel.send('Hello {0.author.mention}'.format(message))
+        if message.content.startswith('!sheesh'):
+            await message.channel.send('SHHHHEEEEESHHHH {0.author.mention}'.format(message))
+                
 client = MyClient()
-client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.IKy95_vhiyfCPHJ1pxw81WVKUgE")
+client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.2NGRbaZmvuxuS4Ju3zdIQc2nJHc")
 
