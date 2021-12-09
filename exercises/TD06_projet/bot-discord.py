@@ -1,7 +1,7 @@
 import discord
 from pokedex1 import *
 from scraping import *
-
+import unidecode
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -81,6 +81,7 @@ class MyClient(discord.Client):
 
             if nompoke3 in pokedex:
                 nompoke4=nompoke3.lower()
+                nompoke4=unidecode.unidecode(nompoke4)
                 print(nompoke4)
                 url = "https://pokestrat.io/fiche-pokemon/"+nompoke4
 
@@ -93,14 +94,16 @@ class MyClient(discord.Client):
                     for tr in table:
                         for td in tr:
                             carac.append(td.text.strip())
+                    
                     pv=carac[1]
                     attaque=carac[3]
                     defense=carac[5]
                     attspe=carac[7]
                     defspe=carac[9]
                     vitesse=carac[11]
-                    stat=pv+"     "+attaque+"     "+defense+"     "+attspe+"     "+defspe+"     "+vitesse
                     
+                    stat=pv+"     "+attaque+"     "+defense+"     "+attspe+"     "+defspe+"     "+vitesse
+                    stat='*'+":bar_chart:"+" "+stat+" "+':bar_chart:'+'*'
                     await message.channel.send(stat.format(message))        
             
             else:
@@ -150,6 +153,7 @@ class MyClient(discord.Client):
         
             if nompoke5 in pokedex:
                 nompoke6=nompoke5.lower()
+                nompoke6=unidecode.unidecode(nompoke6)
                 e=pokedex.index(nompoke5)
                 e+=1
                 url="https://pokestrat.io/equipe"+nompoke6
@@ -160,7 +164,7 @@ class MyClient(discord.Client):
 
         #Commande  ->  sheesh
         if message.content.startswith('!sheesh'):
-            await message.channel.send('SHHHHEEEEESHHHH {0.author.mention}'.format(message))
+            await message.channel.send('*SHHHHEEEEESHHHH @everyone*'.format(message))
             
             
         #Commande  ->  vinted    
@@ -173,11 +177,16 @@ class MyClient(discord.Client):
             ytb2="https://www.youtube.com/watch?v=1qyq9TZA5cQ"
             await message.channel.send(ytb1.format(message))
             await message.channel.send(ytb2.format(message))
-            
-        #Commandes
+        
+        
+        #Liste des Commandes
         if message.content.startswith("!command"):    
-            await message.channel.send('voilà la liste des commandes ! Amuse toi bien ;)', file=discord.File("/Users/bellou/Desktop/command.txt"))
+            await message.channel.send('*voilà la liste des commandes ! Amuse toi bien ;)*', file=discord.File("/Users/bellou/Desktop/command.txt"))
+
+
 client = MyClient()
-client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.PP8JNEb0KQ9xrfvQujIplygCbHA")
+client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.aRJ_V0Y62OWXDHoD_3PL0q5tK9U")
+
+
 
 
