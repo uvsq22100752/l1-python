@@ -42,13 +42,16 @@ class MyClient(discord.Client):
                 b+=1
                 b="https://pokestrat.io/images/gif-animes/shiny/"+str(b)+".gif"
                 await message.channel.send(b.format(message))   
+            
+            
                     
-            if (str(list1[0])) in megaliste:
-                mega=megaliste.index(list1[0])+10001
+            elif nompoke in megaliste:
+                nompoke=list1[0][5:(len(list1[0]))]
+                mega=megaliste.index(nompoke)+10001
                 mega="https://pokestrat.io/images/gif-animes/shiny/"+str(mega)+".gif"
                 await message.channel.send(mega.format(message))
             
-            if nompoke not in pokedex:
+            else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))        
         
         #Commande  ->  gif/NomDuPokémon 
@@ -62,13 +65,15 @@ class MyClient(discord.Client):
                 c="https://pokestrat.io/images/gif-animes/"+str(c)+".gif"
                 await message.channel.send(c.format(message))        
             
-            if (str(list1[0])) in megaliste:
-                mega=megaliste.index(list1[0])+10001
+            elif nompoke2 in megaliste:
+                mega=megaliste.index(nompoke2)+10001
                 mega="https://pokestrat.io/images/gif-animes/"+str(mega)+".gif"
                 await message.channel.send(mega.format(message))
                 
-            if nompoke2 not in pokedex:
+            else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))
+                
+                
         ##Commande  ->  stats/NomDuPokémon   
         if message.content.startswith('stats/'):
             list1.append(message.content)
@@ -98,7 +103,7 @@ class MyClient(discord.Client):
                     
                     await message.channel.send(stat.format(message))        
             
-            if nompoke3 not in pokedex:
+            else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))  
             
             
@@ -150,11 +155,11 @@ class MyClient(discord.Client):
                 url="https://pokestrat.io/equipe"+nompoke6
                 await message.channel.send(url.format(message))        
         
-        if nompoke5 not in pokedex:
+            else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))  
 
         #Commande  ->  sheesh
-        if message.content.startswith('!Sheesh'):
+        if message.content.startswith('!sheesh'):
             await message.channel.send('SHHHHEEEEESHHHH {0.author.mention}'.format(message))
             
             
@@ -162,7 +167,17 @@ class MyClient(discord.Client):
         if message.content.startswith('!Vinted'):
             vinted="https://www.vinted.fr/member/34595386-nathangeck"
             await message.channel.send(vinted.format(message))
-                
+            
+        if message.content.startswith('!Youtube'):
+            ytb1="https://www.youtube.com/watch?v=AZSNu-V8CQw"
+            ytb2="https://www.youtube.com/watch?v=1qyq9TZA5cQ"
+            await message.channel.send(ytb1.format(message))
+            await message.channel.send(ytb2.format(message))
+            
+        #Commandes
+        if message.content.startswith("!command"):    
+            await message.channel.send('voilà la liste des commandes ! Amuse toi bien ;)', file=discord.File("/Users/bellou/Desktop/command.txt"))
 client = MyClient()
-client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.0wIhtdZrB2FVywJb3RMRhHRtpic")
+client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.PP8JNEb0KQ9xrfvQujIplygCbHA")
+
 
