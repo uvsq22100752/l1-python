@@ -1,7 +1,7 @@
 import discord
-from pokedex1 import *
-from scraping import *
 import unidecode
+import requests
+from bs4 import *
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -161,6 +161,17 @@ class MyClient(discord.Client):
         
             else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))  
+                
+        if message.content.startswith("!news"):
+            await message.channel.send("https://www.pokemon.com/fr/actus-pokemon/".format(message))
+        
+        if message.content.startswith("!pokédex"):
+            await message.channel.send("https://www.pokemon.com/fr/pokedex/".format(message))
+            
+        if message.content.startswith("!pokedex"):
+            await message.channel.send("https://www.pokemon.com/fr/pokedex/".format(message))
+        
+            
 
         #Commande  ->  sheesh
         if message.content.startswith('!sheesh'):
@@ -177,6 +188,9 @@ class MyClient(discord.Client):
             ytb2="https://www.youtube.com/watch?v=1qyq9TZA5cQ"
             await message.channel.send(ytb1.format(message))
             await message.channel.send(ytb2.format(message))
+            
+        
+        
         
         
         #Liste des Commandes
@@ -184,8 +198,26 @@ class MyClient(discord.Client):
             await message.channel.send('*voilà la liste des commandes ! Amuse toi bien ;)*', file=discord.File("/Users/bellou/Desktop/command.txt"))
 
 
+
+
+pokedex=[]
+
+file = open("/Users/bellou/Desktop/unt.txt", "r")
+
+lines = file.readlines()
+
+file.close()
+
+for line in lines:
+   a='/'+line.strip()
+   pokedex.append(a)
+print(pokedex)
+
+megaliste=['/Deoxys Attaque','/Deoxys Défense','/Deoxys Vitesse','/Cheniselle Sable','/Cheniselle Déchet','/Shaymin Céleste','/Giratina Originel','/Motisma Chaleur','/Motisma Lavage','/Motisma Froid','/Motisma Hélice','/Motisma Tonte','/Morphéo Solaire','/Morphéo Pluie','/Morphéo Blizzard','/Bargantua Bleu','/Darumacho Transe','/Meloetta','/Boréas Totémique','/Fulguris Totémique','/Démétéros Totémique','/Kyurem Noir','/Kyurem Blanc','/Keldeo Décidé','/Mistigrix Femelle','/Exagide Assaut','/Pitrouille Mini','/Pitrouille Maxi','/Pitrouille Ultra','/Banshitrouye Mini','/Banshitrouye Maxi','/Banshitrouye Ultra','/Méga Florizarre','/Méga Dracaufeu X','/Méga Dracaufeu Y','/Méga Tortank','/Méga Alakazam','/Méga-Ectoplasma','/Méga Kangourex','/Méga Scarabrute','/Méga Léviator','/Méga Ptéra','/Méga Mewtwo X','/Méga Mewtwo Y','/Méga Pharamp','/Méga Cizayox','/Méga Scarhino','/Méga Démolosse','/Méga Tyranocif','/Méga Braségali','/Méga Gardevoir','/Méga Mysdibule','/Méga Galeking','/Méga Charmina','/Méga Elecsprint','/Méga Branette','/Méga Absol','/Méga Carchacrok','/Méga Lucario','/Méga Blizzaroi','/Floette Bleu','/Méga Latias','/Méga Latios','/Méga Nanméouïe','/Méga Steelix','/Méga Jungko','/Méga Laggron','/Méga Diancie','/Méga Gallame','/Méga Lockpin','/Méga Rayquaza','/Méga Métalosse','/Méga Drattak','/Méga Oniglali','/Méga Altaria','/Méga Camérupt','/Méga Sharpedo','/Méga Ténéfix','/Méga Flagadoss','/Méga Roucarnage','/Méga Dardargnan','/Primo Groudon','/Primo Kyogre','/Hoopa Déchaîné','/Arceus Feu','/Arceus Fée','/Arceus Spectre','/Arceus Dragon','/Arceus Electrik','/Arceus Combat','/Arceus Vol','/Arceus Insecte','/Arceus Plante','/Arceus Sol','/Arceus Eau','/Arceus Poison','/Arceus Psy','/Arceus Roche','/Arceus Acier','/Arceus Glace','/Arceus Ténèbres','/Pikachu Lady','/Pikachu Fighter','/Pikachu Docteur','/Pikachu Star','/Pikachu Rockeur','/Flabébé Bleu','/Flabébé Orange','/Flabébé Blanc','/Flabébé Jaune','/Floette Bleue','/Floette Oranges','/Floette Blanches','/Floette Jaunes','/Florges Bleue','/Florges Oranges','/Florges Blanches','/Florges Jaunes','/Sancoki Orient','/Tritosor Orient','/Amphinobi Sasha','/Plumeline Pom-Pom','/Plumeline Hula','/Plumeline Buyo','/Lougaroc Nocturne','/Froussardine Banc','/Météno Noyau Rouge','/Rattata Alola','/Rattatac Alola','/Raichu Alola','/Sabelette Alola','/Sablaireau Alola','/Goupix Alola','/Feunard Alola','/Taupiqueur Alola','/Triopiqueur Alola','/Miaouss Alola','/Persian Alola','/Racaillou Alola','/Gravalanch Alola','/Grolem Alola','/Grotadmorv Alola','/Noadkoko Alola','/Ossatueur Alola',"/Tadmorv Alola"]
+
+
 client = MyClient()
-client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.4S4pJhy4TdlLfJGLx6Z04kFVTK8")
+client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.HeUQw7nq1Pcp-gM1rbyoyY8g-1U")
 
 
 
