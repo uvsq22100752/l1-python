@@ -4,9 +4,9 @@ import unidecode
 import requests
 from bs4 import *
 from pokedex1 import *
+import random as r
 
-
-listechampion=['/Adriane','/Albert','/Alistair','/Alizée','/Aloé','/Amana','/Amaro','/Armando','/Artie','/Astera','/Auguste','/Bardane','/Bastien','/Blanche','/Blue','/Carolina','/Charles','/Chaz','/Chuck','/Cornélia','/Donna','/Erika','/Faïza','/Flo','/Frédo','/Giovanni','/Gladys','/Hector','/Inezia','/Iris','/Jasmine','/Jeannine','/Juan','/Kabu','/Kiméra','/Koga','/Lem','/Lino','/Lona','/Lovis','/Lévy & Tatia','/Major Bob','/Marc','/Morgane','/Mortimer','/Mélina','/Noa','/Norman','/Ondine','/Percy','/Peterson','/Pierre','/Pierrick','/Rachid','/Rosemary','/Roxanne','/Roy','/Sally','/Sandra','/Strykna','/Tanguy','/Tcheren','/Urup','/Valériane','/Violette','/Voltère','/Watson','/Zhu']
+listechampion=['/Adriane','/Albert','/Alistair','/Alizée','/Aloé','/Amana','/Amaro','/Armando','/Artie','/Astera','/Auguste','/Bardane','/Bastien','/Blanche','/Blue','/Carolina','/Charles','/Chaz','/Chuck','/Cornélia','/Donna','/Erika','/Faïza','/Flo','/Frédo','/Giovanni','/Gladys','/Hector','/Inezia','/Iris','/Jasmine','/Jeannine','/Juan','/Kabu','/Kiméra','/Koga','/Lem','/Lino','/Lona','/Lovis','/Lévy & Tatia','/Major_Bob','/Marc','/Morgane','/Mortimer','/Mélina','/Noa','/Norman','/Ondine','/Percy','/Peterson','/Pierre','/Pierrick','/Rachid','/Rosemary','/Roxanne','/Roy','/Sally','/Sandra','/Strykna','/Tanguy','/Tcheren','/Urup','/Valériane','/Violette','/Voltère','/Watson','/Zhu']
 
 
 
@@ -835,7 +835,8 @@ pokede=['Bulbizarre',
        'Arrozard',
        'Lézargus',
        'Vinted',
-       'Sheesh']
+       'Sheesh',
+       'Saucisse']
 
 pokedex=[]
 
@@ -869,9 +870,15 @@ class MyClient(discord.Client):
             list1.append(message.content)
             
             if (str(list1[0])) in pokedex:
-                a=str(list1[0])
-                a="https://www.pokepedia.fr"+a
-                await message.channel.send(a.format(message))    
+                print(str(list1[0]))
+                if (str(list1[0]))=="/Saucisse":
+                    await message.channel.send(file=discord.File("/Users/bellou/Desktop/trioheya.png"))
+                    await message.channel.send(file=discord.File("/Users/bellou/Desktop/heyaa.mp4"))
+
+                else:   
+                    a=str(list1[0])
+                    a="https://www.pokepedia.fr"+a
+                    await message.channel.send(a.format(message))    
             else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))
                 
@@ -1041,7 +1048,7 @@ class MyClient(discord.Client):
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))
                 
                 
-        ##Commande  ->  stats/NomDuPokémon   
+        #Commande  ->  stats/NomDuPokémon   
         if message.content.startswith('stats/'):
             list1.append(message.content)
             nompoke3=list1[0][5:(len(list1[0]))]
@@ -1076,7 +1083,7 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))  
                 
-                
+        #Commande affiche les points forts et faibles       
         if message.content.startswith('strats/'):
             list1.append(message.content)
             nompoke7=list1[0][6:(len(list1[0]))]
@@ -1101,13 +1108,13 @@ class MyClient(discord.Client):
                         print(avantages)
                     
                     print(avantages)
-                    avantages='*'+":man_office_worker:"+"  "+avantages+"  "+':man_office_worker:'+'*'    
+                    avantages='*'+":white_check_mark:"+"  "+avantages+"  "+':x:'+'*'    
                     await message.channel.send(avantages.format(message))        
-            
+
                 else:
                     await message.channel.send("Erreur : Pokémon introuvable.".format(message))
                     
-                    
+        #Commande -> Affiche les partenaires conseillés            
         if message.content.startswith('partenaires/'):
             list1.append(message.content)
             nompoke9=list1[0][11:(len(list1[0]))]
@@ -1191,7 +1198,7 @@ class MyClient(discord.Client):
         
             else:
                 await message.channel.send("Erreur : Pokémon introuvable.".format(message))  
-                
+        #commande -> News et Pokédex       
         if message.content.startswith("!news"):
             await message.channel.send("https://www.pokemon.com/fr/actus-pokemon/".format(message))
         
@@ -1208,7 +1215,7 @@ class MyClient(discord.Client):
             await message.channel.send(":loudspeaker:"+'*SHHHHEEEEESHHHH @everyone*'+":loudspeaker:".format(message))
             
             
-        #Commande  ->  vinted    
+        #Commande  ->  vinted  et Youtube
         if message.content.startswith('!Vinted'):
             vinted="https://www.vinted.fr/member/34595386-nathangeck"
             await message.channel.send(vinted.format(message))
@@ -1223,22 +1230,90 @@ class MyClient(discord.Client):
         if message.content.startswith('!tabletypes'):
             await message.channel.send("https://i.servimg.com/u/f58/13/25/12/23/tbtrs10.png".format(message))
             
-        if message.content.startswith("!command"):    
-            await message.channel.send('*voilà la liste des commandes ! Amuse toi bien ;)*', file=discord.File("/Users/bellou/Desktop/command.txt"))
+        # Afficher la liste des commandes du BOT   
+        if message.content.startswith("!command"): 
+            await message.channel.send('*voilà la liste des commandes ! Amuse toi bien ;)*',file=discord.File("/Users/bellou/Desktop/studio-pokedex.gif"))   
+            await message.channel.send(file=discord.File("/Users/bellou/Desktop/command.txt"))
+                                                        
         
+        if message.content.startswith("!equadiff"):
+            await message.channel.send("https://www.youtube.com/watch?v=qHF5kiDFkW8&list=PLVUDmbpupCaoO3uY2M8bnvrK-TMyFeRi7")
         
+        if message.content.startswith("!Random"):
+            randompoke=r.choice(pokede)
+            print(randompoke)
+            b1=pokede.index(randompoke)
+            b1+=1
+            returne="https://www.pokepedia.fr/"+randompoke
+            returne2="https://pokestrat.io/images/gif-animes/"+str(b1)+".gif"
+            
+            await message.channel.send(returne)
+            await message.channel.send(returne2)
+        
+        if message.content.startswith("!teamrandom"):
+            for i in range (0,6):
+                
+                randompoke1=r.choice(pokede)
+                print(randompoke1)
+                b1=pokede.index(randompoke1)
+                b1+=1
+                
+                returne="https://www.pokepedia.fr/"+randompoke1
+                returne2="https://pokestrat.io/images/gif-animes/"+str(b1)+".gif"
+                if i==0:
+                    await message.channel.send("Starter :")
+                    await message.channel.send(returne2)
+                else:   
+                    await message.channel.send(returne2)
+            
+        #evolutions
+        if message.content.startswith('evo/'):   
+            list1.append(message.content)
+            nompoke9=list1[0][3:(len(list1[0]))]
+            evo=""
+            
+            
+            if nompoke9 in pokedex:
+                nompoke10=nompoke9.lower()
+                if nompoke10=="/nidoran♂":
+                    nompoke10=nompoke10
+                elif nompoke10=="/nidoran♂":
+                    nompoke10=nompoke10
+                print(nompoke10)
+                url = "https://www.pokepedia.fr"+nompoke10
 
+                response = requests.get(url)
 
+                if response.ok:
+                    if nompoke10=="/evoli":
+                        soup=BeautifulSoup(response.text,"html.parser")
+                        table = soup.findAll('table', style="align: center; text-align:center; width:615px;")
+                        carac1=[]
+                        for img in table:
+                            carac1.append(img.text.strip())
+                        for i in range (0,(len(carac1))):
+                            evo+=" "+carac1[i]
+                        print(evo)
+                    
+                         
+                #COMMENT ENVOYER UN MESSAGE D'ERREUR SI PAS D'évo ?? 
+                    else:
+                        soup=BeautifulSoup(response.text,"html.parser")
+                        table = soup.findAll('table', style="text-align:center; width:320px;")
+                        carac1=[]
+                        for img in table:
+                            carac1.append(img.text.strip())
+                        for i in range (0,(len(carac1))):
+                            evo+=" "+carac1[i]
+                        print(evo)
+                    
+                    print(evo)      
+                #COMMENT ENVOYER UN MESSAGE D'ERREUR SI PAS D'évo ?? 
+                
+                await message.channel.send(evo.format(message))
+             
 
-
-       
-
-
-
-
- 
-
-
+                    
 
 client = MyClient()
-client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.HeUQw7nq1Pcp-gM1rbyoyY8g-1U")
+client.run("OTE4MTYwNDkxMjU0Mjc2MTM3.YbDNlw.hqEch454PFWIc_rEtM-XUkz0t3c")
