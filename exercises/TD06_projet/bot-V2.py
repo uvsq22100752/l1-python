@@ -3,7 +3,7 @@ from discord.state import AutoShardedConnectionState
 import unidecode
 import requests
 from bs4 import *
-from pokedex1 import *
+
 import random as r
 
 listechampion=['/Adriane','/Albert','/Alistair','/Alizée','/Aloé','/Amana','/Amaro','/Armando','/Artie','/Astera','/Auguste','/Bardane','/Bastien','/Blanche','/Blue','/Carolina','/Charles','/Chaz','/Chuck','/Cornélia','/Donna','/Erika','/Faïza','/Flo','/Frédo','/Giovanni','/Gladys','/Hector','/Inezia','/Iris','/Jasmine','/Jeannine','/Juan','/Kabu','/Kiméra','/Koga','/Lem','/Lino','/Lona','/Lovis','/Lévy & Tatia','/Major_Bob','/Marc','/Morgane','/Mortimer','/Mélina','/Noa','/Norman','/Ondine','/Percy','/Peterson','/Pierre','/Pierrick','/Rachid','/Rosemary','/Roxanne','/Roy','/Sally','/Sandra','/Strykna','/Tanguy','/Tcheren','/Urup','/Valériane','/Violette','/Voltère','/Watson','/Zhu']
